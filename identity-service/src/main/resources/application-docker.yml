@@ -1,0 +1,78 @@
+server:
+  port: 8080
+  timezone: Asia/Ho_Chi_Minh
+
+spring:
+  application:
+    name: identity-service
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  data:
+    redis:
+      host: redis
+      port: 6379
+
+  datasource:
+    url: "jdbc:mysql://mysql:3306/hacof?serverTimezone=Asia/Ho_Chi_Minh"
+    driverClassName: 'com.mysql.cj.jdbc.Driver'
+    username: root
+    password: 12345
+  jackson:
+    time-zone: Asia/Ho_Chi_Minh
+
+  liquibase:
+    change-log: classpath:db/changelog.xml
+    enabled: false
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.jdbc.time_zone: Asia/Ho_Chi_Minh
+    show-sql: true
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+outbound:
+  identity:
+    client-id: ${clientId}
+    client-secret: ${clientSecret}
+    redirect-uri: 'https://hacof.site/authenticate'
+
+jwt:
+  signerKey: 'ufTpTQ4N18O8b7+Av2juOo+ekka1oKm0Y022PhDtv1muMGsV23u4UKLNSkJebOc3'
+  valid-duration: 36000
+  refreshable-duration: 864000
+
+aws:
+  s3:
+    access-key: ${AWS_ACCESS_KEY_ID}
+    secret-key: ${AWS_SECRET_ACCESS_KEY}
+    region: ${AWS_REGION}
+    bucket-name: ${AWS_S3_BUCKET_NAME}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    preferIpAddress: true
+
+logging:
+  level:
+    com.hacof.identity: debug

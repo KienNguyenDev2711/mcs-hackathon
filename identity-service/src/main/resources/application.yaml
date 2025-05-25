@@ -1,0 +1,73 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: identity-service
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  datasource:
+    url: "jdbc:mysql://localhost:3306/hacof"
+    driverClassName: "com.mysql.cj.jdbc.Driver"
+    username: root
+    password: 12345
+
+  liquibase:
+    change-log: classpath:db/changelog.xml
+    enabled: false
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+outbound:
+  identity:
+    client-id: ${clientId}
+    client-secret: ${clientSecret}
+    redirect-uri: "http://localhost:3000/authenticate"
+
+jwt:
+  signerKey: "ufTpTQ4N18O8b7+Av2juOo+ekka1oKm0Y022PhDtv1muMGsV23u4UKLNSkJebOc3"
+  valid-duration: 36000
+  refreshable-duration: 864000
+
+aws:
+  s3:
+    access-key: ${AWS_ACCESS_KEY_ID}
+    secret-key: ${AWS_SECRET_ACCESS_KEY}
+    region: ${AWS_REGION}
+    bucket-name: ${AWS_S3_BUCKET_NAME}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    preferIpAddress: true
+
+logging:
+  level:
+    com.hacof.identity: debug

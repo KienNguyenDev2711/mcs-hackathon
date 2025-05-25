@@ -1,0 +1,51 @@
+server:
+  port: 8082
+  timezone: Asia/Ho_Chi_Minh
+
+spring:
+  application:
+    name: submission-service
+  datasource:
+    url: "jdbc:mysql://mysql:3306/hacof?serverTimezone=Asia/Ho_Chi_Minh"
+    driverClassName: 'com.mysql.cj.jdbc.Driver'
+    username: root
+    password: 12345
+  jackson:
+    time-zone: Asia/Ho_Chi_Minh
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.jdbc.time_zone: Asia/Ho_Chi_Minh
+    show-sql: true
+
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+jwt:
+  signerKey: 'ufTpTQ4N18O8b7+Av2juOo+ekka1oKm0Y022PhDtv1muMGsV23u4UKLNSkJebOc3'
+  valid-duration: 36000
+  refreshable-duration: 864000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    preferIpAddress: true
+
+aws:
+  s3:
+    access-key: ${AWS_ACCESS_KEY_ID}
+    secret-key: ${AWS_SECRET_ACCESS_KEY}
+    region: ${AWS_REGION}
+    bucket-name: ${AWS_S3_BUCKET_NAME}
+
+logging:
+  level:
+    com.hacof.submission: debug
