@@ -4,8 +4,7 @@
 
 **HaCoF (Hackathon Collaboration Framework)** is an innovative web-based platform tailored for managing university-level hackathons. It streamlines key processes such as participant registration, team collaboration, project submission, and evaluation. Designed to enhance efficiency and engagement, HaCoF provides real-time updates, intuitive tools, and data-driven insights, ensuring an exceptional experience for organizers, judges, and participants alike.
 
-This project is developed using modern technologies such as **Spring Boot** for the backend, **NextJS** for the frontend, and **MySQL** for the database. Each team member has specific roles in the development and maintenance of the system.
-
+This project is developed using modern technologies such as **Spring Boot** for the backend, **NextJS** for the frontend, and **MySQL** for the database.
 --- --- ---- ------- ------------
 
 ## Technologies Used
@@ -96,13 +95,6 @@ This project is developed using modern technologies such as **Spring Boot** for 
 
 ---
 
-## Team Members
-
-1. **Nguyen Doan Trong Doanh** (Leader)
-2. **Le Quang Huy**
-3. **Nguyen Cao Trung Kien**
-4. **Bui Phan Thanh Phuc**
-
 ---
 
 ## Setup and Running the Application
@@ -145,9 +137,3 @@ Ensure you have the following installed on your machine:
    npm start
    ```
 
-## Contact
-
-If you have any questions about the project, feel free to reach out:
-
-- Email: nguyentrongdoanh202@gmail.com
-- GitHub: https://github.com/ndtdoanh/Hackathon
